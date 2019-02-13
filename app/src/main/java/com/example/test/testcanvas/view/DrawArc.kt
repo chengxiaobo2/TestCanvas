@@ -17,7 +17,7 @@ import android.view.View
  * @description
  * @company 北京奔流网络信息技术有线公司
  * @created 2019/2/12
- * @changeRecord [修改记录] <br/>
+ * @changeRecord <br/>
  */
 class DrawArc : View {
 
@@ -25,10 +25,10 @@ class DrawArc : View {
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
-    val paint = Paint(Paint.ANTI_ALIAS_FLAG)
-    var centerX = 0.0f
-    var centerY = 0.0f
-    var rect = RectF()
+    private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+    private var centerX = 0.0f
+    private var centerY = 0.0f
+    private val rect = RectF()
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
 
@@ -46,6 +46,7 @@ class DrawArc : View {
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+        //TODO 注意1：startAngle为起始的角度，sweepAngle为扫过的角度
         canvas.drawArc(rect, 0.0f, 120.0f, true, paint)
     }
 }
