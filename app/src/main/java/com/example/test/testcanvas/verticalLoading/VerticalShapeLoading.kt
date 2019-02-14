@@ -51,6 +51,7 @@ class VerticalShapeLoading : View {
             indicator.layout()
             animator.apply {
                 setTimeListener { _, time, _ ->
+                    //TODO 注意 (time.toFloat() / 1000f % 1.0f)一秒钟一个周期，*2 一秒钟两个周期
                     indicator.progress = (time.toFloat() / 1000f % 1.0f) * 2
                     invalidate()
                 }
