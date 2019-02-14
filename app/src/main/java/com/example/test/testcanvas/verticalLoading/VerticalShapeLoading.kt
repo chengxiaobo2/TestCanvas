@@ -27,7 +27,7 @@ class VerticalShapeLoading : View {
         typedArray.recycle()
     }
 
-    var loadingColor = Color.WHITE
+    private var loadingColor = Color.WHITE
 
     private val indicator = Indicator()
     private val animator = TimeAnimator()

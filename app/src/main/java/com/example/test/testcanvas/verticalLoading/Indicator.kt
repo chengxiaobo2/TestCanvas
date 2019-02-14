@@ -79,6 +79,7 @@ class Indicator {
             blocks[i].rect.top = blocks[i].top
         }
         canvas.save()
+        //TODO 注意 canvas.translate
         canvas.translate(0.0f, indicatorHeight - padding)
         for (i in 0 until blocks.size) {
             blocks[i].draw(canvas)
