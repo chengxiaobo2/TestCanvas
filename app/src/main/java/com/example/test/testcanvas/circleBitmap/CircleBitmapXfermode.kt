@@ -1,35 +1,31 @@
-package com.example.test.testcanvas.view
+package com.example.test.testcanvas.circleBitmap
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Paint
-import android.graphics.Rect
+import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 import com.example.test.testcanvas.R
 import com.example.test.testcanvas.getBitmapFromResource
 
 /**
- * drawBitmap demo
- *
  * @author chengxiaobo
  * @version 1.0
  * @title
  * @description
  * @company 北京奔流网络信息技术有线公司
- * @created 2019/2/13
- * @changeRecord <br/>
+ * @created 2019/2/15
+ * @changeRecord [修改记录] <br/>
  */
-class DrawBitmap : View {
+class CircleBitmapXfermode : View {
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
-    var bitmap: Bitmap? = null
-    val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+    private var bitmap: Bitmap? = null
+    private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val rectDestination = Rect()
     private val rectSource = Rect()
+    private val path = Path()
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
@@ -42,15 +38,13 @@ class DrawBitmap : View {
             val centerX = width / 2
             val centerY = height / 2
             rectSource.set(centerX - radius, centerY - radius, centerX + radius, centerY + radius)
+            path.addCircle(centerX.toFloat(), centerY.toFloat(), radius.toFloat(), Path.Direction.CCW)
         }
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-//        canvas.drawBitmap(bitmap, 0.0f, 0.0f, paint)
-        //TODO 注意1：变形的bitmap
-//        canvas.drawBitmap(bitmap, null, rectDestination, paint)
-        //crop以后的bitmap
+        canvas.clipPath(path)
         canvas.drawBitmap(bitmap, rectSource, rectDestination, paint)
     }
 }
