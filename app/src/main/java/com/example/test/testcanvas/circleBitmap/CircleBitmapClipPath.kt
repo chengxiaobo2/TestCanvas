@@ -52,8 +52,11 @@ class CircleBitmapClipPath : View {
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        canvas.drawText("clipPath", 0.0f, dp2px(14.0f), paint)
+
+        canvas.save()
         canvas.clipPath(path)
         canvas.drawBitmap(bitmap, rectSource, rectDestination, paint)
+        canvas.restore()
+        canvas.drawText("clipPath", 0.0f, dp2px(14.0f), paint)
     }
 }
