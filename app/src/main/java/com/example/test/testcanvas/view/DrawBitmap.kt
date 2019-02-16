@@ -36,11 +36,9 @@ class DrawBitmap : View {
         bitmap = getBitmapFromResource(R.drawable.pic, width, context)
         rectDestination.set(0, 0, width, width)
         bitmap?.let {
-            val bitmapWidth = it.width
-            val bitmapHeight = it.height
-            val radius = if (bitmapHeight > bitmapWidth) bitmapWidth / 2 else height / 2
-            val centerX = width / 2
-            val centerY = height / 2
+            val radius = Math.min(it.width / 2, it.height / 2)
+            val centerX = it.width / 2
+            val centerY = it.height / 2
             rectSource.set(centerX - radius, centerY - radius, centerX + radius, centerY + radius)
         }
     }
