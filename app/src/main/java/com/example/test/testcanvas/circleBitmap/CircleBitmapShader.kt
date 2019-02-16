@@ -49,8 +49,9 @@ class CircleBitmapShader : View {
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         paint.shader = bitmapShader
-//        canvas.drawCircle(centerX, centerY, radius, paint)
-        canvas.drawRect(0.0f, 0.0f, height.toFloat(), height.toFloat(), paint)
+        canvas.drawCircle(centerX, centerY, radius, paint)
+        //用来演示tileMode
+//        canvas.drawRect(0.0f, 0.0f, height.toFloat(), height.toFloat(), paint)
         // TODO 记得设置为空，再drawText,否则text的颜色为图片的颜色
         paint.shader = null
         paint.color = Color.BLACK
