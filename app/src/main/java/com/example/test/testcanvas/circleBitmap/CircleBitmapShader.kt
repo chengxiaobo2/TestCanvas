@@ -10,6 +10,7 @@ import com.example.test.testcanvas.getBitmapFromResource
 
 /**
  * bitmapShader实现圆形图片
+ * hencoder代码--> https://github.com/rengwuxian/HenCoderPlus/blob/master/06-drawing/src/main/java/com/hencoder/plus/view/AvatarView.java
  *
  * @author chengxiaobo
  * @version 1.0

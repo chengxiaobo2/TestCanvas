@@ -59,8 +59,6 @@ class CircleBitmapXfermode : View {
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        canvas.drawText("xfermode", 0.0f, dp2px(14.0f), paint)
-
         val saved = canvas.saveLayer(null, null, Canvas.ALL_SAVE_FLAG)
         //TODO 注意1 目标图像
         canvas.drawCircle(centerX, centerY, radius, paint)
@@ -68,5 +66,8 @@ class CircleBitmapXfermode : View {
         //TODO 注意2 原图像
         canvas.drawBitmap(bitmap, rectSource, rectDestination, paint)
         canvas.restoreToCount(saved)
+
+        paint.xfermode = null
+        canvas.drawText("xfermode", 0.0f, dp2px(14.0f), paint)
     }
 }
