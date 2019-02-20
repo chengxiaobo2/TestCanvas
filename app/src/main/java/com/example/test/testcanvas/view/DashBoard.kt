@@ -59,8 +59,8 @@ class DashBoard : View {
 
         //计算指针的读数，以及指针的x,y值
         pointerAngle = startAngle + (currentItem - 1) * (360 - middleAngle) / degreeCount
-        pointerX = Math.cos(Math.toRadians(pointerAngle.toDouble())).toFloat() * dp2px(width / 6.0f)
-        pointerY = Math.sin(Math.toRadians(pointerAngle.toDouble())).toFloat() * dp2px(width / 6.0f)
+        pointerX = Math.cos(Math.toRadians(pointerAngle.toDouble())).toFloat() * width / 4.0f
+        pointerY = Math.sin(Math.toRadians(pointerAngle.toDouble())).toFloat() * width / 4.0f
 
         //用虚线画path
 //        paint.setPathEffect(DashPathEffect(floatArrayOf(dp2px(4.0f), dp2px(2.0f)), 0.0f))
@@ -91,15 +91,16 @@ class DashBoard : View {
         canvas.drawArc(rect, startAngle, sweepAngle, false, paint)
 
         //画刻度
-        paint.setPathEffect(pathDashPathEffect)
+        paint.pathEffect = pathDashPathEffect
         canvas.drawPath(path, paint)
+        paint.pathEffect = null
 
         //画指针
         canvas.save()
         canvas.translate(centerX, centerY)
         canvas.drawLine(0.0f, 0.0f, pointerX, pointerY, paint)
         canvas.restore()
-        paint.setPathEffect(null)
+
 
     }
 }
