@@ -34,11 +34,14 @@ class DrawBitmap : View {
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
         bitmap = getBitmapFromResource(R.drawable.pic, width, context)
+        //canvas上drawBitmap的范围
         rectDestination.set(0, 0, width, width)
+
         bitmap?.let {
             val radius = Math.min(it.width / 2, it.height / 2)
             val centerX = it.width / 2
             val centerY = it.height / 2
+            //从bitmap上取的范围
             rectSource.set(centerX - radius, centerY - radius, centerX + radius, centerY + radius)
         }
     }
