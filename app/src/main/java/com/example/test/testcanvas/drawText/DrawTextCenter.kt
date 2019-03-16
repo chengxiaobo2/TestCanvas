@@ -55,8 +55,8 @@ class DrawTextCenter : View {
         paint.color = Color.parseColor("#FFC125")
         //TODO drawText时，记得将Style设置成Fill 否则结果很意外哦
         paint.style = Paint.Style.FILL
-        canvas.drawText(s, centerX, centerY, paint)
-//        canvas.drawText(s, centerX, centerY1, paint)
+//        canvas.drawText(s, centerX, centerY, paint)
+        canvas.drawText(s, centerX, centerY1, paint)
 //        paint.color = Color.RED
 //        canvas.drawText(s, centerX, centerY2, paint)
 

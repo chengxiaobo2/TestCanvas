@@ -1,9 +1,7 @@
 package com.example.test.testcanvas.drawText
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
+import android.graphics.*
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
@@ -34,6 +32,8 @@ class TextLine : View {
     var ascents = "0.0f"
     var metricsTops = "0.0f"
     var metricsBottoms = "0.0f"
+
+    var rect = Rect()
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
 
@@ -54,6 +54,7 @@ class TextLine : View {
             "TextLine",
             "metricsTop: " + metricsTop + " ascent: " + ascent + " descent: " + descent + " metricsBottom:" + metricsBottom
         )
+        paint.getTextBounds("cheng",0,"cheng".length,rect)
 
     }
 
@@ -129,6 +130,12 @@ class TextLine : View {
         paint.color = Color.RED
         canvas.drawPoint(0.0f, 0.0f, paint)
         canvas.drawText(metricsBottoms, paint.strokeWidth, paint.strokeWidth / 2.0f, paint)
+        canvas.restore()
+
+        canvas.save()
+        canvas.translate(-dp2px(10.0f), paint.strokeWidth * 7)
+        paint.color = Color.BLACK
+        canvas.drawText("bound=" +"l:"+rect.left+" r:"+rect.right+" t:"+rect.top+" b:"+rect.bottom, 0.0f, paint.strokeWidth / 2.0f, paint)
         canvas.restore()
 
     }
