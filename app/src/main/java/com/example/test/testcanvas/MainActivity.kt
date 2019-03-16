@@ -11,7 +11,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         view9.setOnClickListener {
-            startActivity(Intent(MainActivity@this,TestShaderActivity::class.java))
+            startActivity(Intent(MainActivity@ this, TestShaderActivity::class.java))
+        }
+
+        view15.setOnClickListener {
+            startActivity(Intent(MainActivity@ this, StaticLayoutActivity::class.java))
         }
     }
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".StaticLayoutActivity">
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:text="canvas.drawText 是不能换行的，我们用staticLayout实现换行。 \n1.staticLayout 指定宽度，超过宽度自动换行。\n2.staticLayout 通过换行符 \\n"/>
+
+    <com.example.test.testcanvas.drawText.TestStaticLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginTop="30dp"
+    />
+
+</LinearLayout>
