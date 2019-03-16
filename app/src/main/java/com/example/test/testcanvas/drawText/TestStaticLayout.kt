@@ -11,7 +11,7 @@ import android.view.View
 import com.example.test.testcanvas.dp2px
 
 /**
- *
+ * TestStaticLayout
  * @author chengxiaobo
  * @time 2019/3/16 17:03
  */

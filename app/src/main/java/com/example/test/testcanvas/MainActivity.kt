@@ -17,5 +17,9 @@ class MainActivity : AppCompatActivity() {
         view15.setOnClickListener {
             startActivity(Intent(MainActivity@ this, StaticLayoutActivity::class.java))
         }
+
+        view16.setOnClickListener {
+            startActivity(Intent(MainActivity@ this, BreakTextActivity::class.java))
+        }
     }
 }
