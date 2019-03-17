@@ -21,5 +21,8 @@ class MainActivity : AppCompatActivity() {
         view16.setOnClickListener {
             startActivity(Intent(MainActivity@ this, BreakTextActivity::class.java))
         }
+        view17.setOnClickListener {
+            startActivity(Intent(MainActivity@ this, TestCamera1Activity::class.java))
+        }
     }
 }
