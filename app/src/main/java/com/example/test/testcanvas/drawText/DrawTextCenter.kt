@@ -49,7 +49,8 @@ class DrawTextCenter : View {
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-
+        paint.style = Paint.Style.STROKE
+        paint.color = Color.RED
         canvas.drawArc(rect, 200.0f, 360f, false, paint)
         paint.textAlign = Paint.Align.CENTER //文字最中间的地方在X处
         paint.color = Color.parseColor("#FFC125")
