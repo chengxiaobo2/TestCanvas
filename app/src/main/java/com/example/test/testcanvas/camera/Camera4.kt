@@ -7,7 +7,6 @@ import android.view.View
 import com.example.test.testcanvas.R
 import com.example.test.testcanvas.dp2px
 import com.example.test.testcanvas.getBitmapFromResource
-import kotlin.math.roundToLong
 
 /**
  *
@@ -50,7 +49,7 @@ class Camera4 : View {
             left = centerX - imageWidth / 2
             right = centerX + imageWidth / 2
         }
-        camera.setLocation(0.0f, 0.0f, dp2px(10.0f))
+        camera.setLocation(0.0f, 0.0f, dp2px(6.0f))
 
         with(rectLeft) {
             top = -imageWidth
@@ -70,26 +69,35 @@ class Camera4 : View {
         super.onDraw(canvas)
 
         //左侧
+        val m = canvas.matrix;
+
         canvas.save()
+        //切
         canvas.translate(centerX, centerY)
-        canvas.rotate(-30.0f)
+        canvas.rotate(-20.0f)
         canvas.clipRect(rectLeft)
-        canvas.rotate(30.0f)
-        canvas.translate(-centerX, -centerY)
+        canvas.matrix = m
+        //画
         bitmap?.let {
             canvas?.drawBitmap(it, bitmapSource, imageDestination, paint)
         }
         canvas.restore()
+
         //右侧
-//        canvas.save()
-//        canvas.translate(centerX, centerY)
-//        canvas.rotate(-30.0f)
-//        canvas.clipRect(rectRight)
-//        canvas.rotate(30.0f)
-//        canvas.translate(-centerX, -centerY)
-//        bitmap?.let {
-//            canvas?.drawBitmap(it, bitmapSource, imageDestination, paint)
-//        }
-//        canvas.restore()
+        camera.save()
+        camera.rotateY(30.0f)
+        canvas.save()
+        canvas.translate(centerX, centerY)
+        canvas.rotate(-20.0f)
+        camera.applyToCanvas(canvas)
+        canvas.clipRect(rectRight)
+        canvas.rotate(20.0f)
+        canvas.translate(-centerX, -centerY)
+        //画
+        bitmap?.let {
+            canvas?.drawBitmap(it, bitmapSource, imageDestination, paint)
+        }
+        camera.restore()
+        canvas.restore()
     }
 }

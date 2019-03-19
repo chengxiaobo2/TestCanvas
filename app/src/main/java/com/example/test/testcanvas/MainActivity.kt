@@ -24,5 +24,9 @@ class MainActivity : AppCompatActivity() {
         view17.setOnClickListener {
             startActivity(Intent(MainActivity@ this, TestCamera1Activity::class.java))
         }
+
+        view18.setOnClickListener {
+            startActivity(Intent(MainActivity@ this, TestCamera2Activity::class.java))
+        }
     }
 }
