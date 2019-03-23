@@ -12,7 +12,7 @@ import com.example.test.testcanvas.getBitmapFromResource
 
 /**
  * Flipboard翻转动画
- *
+ * 扔物线代码-https://github.com/rengwuxian/HenCoderPlus/blob/master/08_animation/src/main/java/com/hencoder/a08_animation/view/FancyFlipView.java
  * @author chengxiaobo
  * @time 2019/3/23 18:45
  */
