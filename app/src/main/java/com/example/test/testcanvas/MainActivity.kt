@@ -28,5 +28,8 @@ class MainActivity : AppCompatActivity() {
         view18.setOnClickListener {
             startActivity(Intent(MainActivity@ this, TestCamera2Activity::class.java))
         }
+        view19.setOnClickListener {
+            startActivity(Intent(MainActivity@ this, FlipboardAnimationActivity::class.java))
+        }
     }
 }
