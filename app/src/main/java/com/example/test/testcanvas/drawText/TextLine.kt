@@ -54,12 +54,15 @@ class TextLine : View {
             "TextLine",
             "metricsTop: " + metricsTop + " ascent: " + ascent + " descent: " + descent + " metricsBottom:" + metricsBottom
         )
-        paint.getTextBounds("cheng",0,"cheng".length,rect)
+        paint.getTextBounds("cheng", 0, "cheng".length, rect)
 
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+
+        paint.textSize = dp2px(60.0f)
+        paint.strokeWidth = dp2px(1.0f)
 
         canvas.drawText("cheng", leftX, leftY, paint)
         paint.color = Color.GRAY
@@ -135,7 +138,12 @@ class TextLine : View {
         canvas.save()
         canvas.translate(-dp2px(10.0f), paint.strokeWidth * 7)
         paint.color = Color.BLACK
-        canvas.drawText("bound=" +"l:"+rect.left+" r:"+rect.right+" t:"+rect.top+" b:"+rect.bottom, 0.0f, paint.strokeWidth / 2.0f, paint)
+        canvas.drawText(
+            "bound=" + "l:" + rect.left + " r:" + rect.right + " t:" + rect.top + " b:" + rect.bottom,
+            0.0f,
+            paint.strokeWidth / 2.0f,
+            paint
+        )
         canvas.restore()
 
     }

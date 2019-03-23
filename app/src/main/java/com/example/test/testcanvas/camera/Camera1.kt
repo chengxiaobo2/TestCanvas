@@ -59,10 +59,10 @@ class Camera1 : View {
         canvas.translate(centerX, centerY)
         camera.applyToCanvas(canvas)
         canvas.translate(-centerX, -centerY)
-        camera.restore()
         bitmap?.let {
             canvas?.drawBitmap(it, bitmapSource, imageDestination, paint)
         }
+        camera.restore()
         canvas.restore()
     }
 }

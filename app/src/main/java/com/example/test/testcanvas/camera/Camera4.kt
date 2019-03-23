@@ -69,14 +69,12 @@ class Camera4 : View {
         super.onDraw(canvas)
 
         //左侧
-        val m = canvas.matrix;
-
         canvas.save()
-        //切
         canvas.translate(centerX, centerY)
-        canvas.rotate(-20.0f)
+        canvas.rotate(-10.0f)
         canvas.clipRect(rectLeft)
-        canvas.matrix = m
+        canvas.rotate(10.0f)
+        canvas.translate(-centerX, -centerY)
         //画
         bitmap?.let {
             canvas?.drawBitmap(it, bitmapSource, imageDestination, paint)
@@ -88,10 +86,10 @@ class Camera4 : View {
         camera.rotateY(30.0f)
         canvas.save()
         canvas.translate(centerX, centerY)
-        canvas.rotate(-20.0f)
+        canvas.rotate(-10.0f)
         camera.applyToCanvas(canvas)
         canvas.clipRect(rectRight)
-        canvas.rotate(20.0f)
+        canvas.rotate(10.0f)
         canvas.translate(-centerX, -centerY)
         //画
         bitmap?.let {

@@ -22,7 +22,6 @@ class DrawTextCenter : View {
     var radius = 0.0f
     var rect = RectF()
     var centerY1 = 0.0f
-    var centerY2 = 0.0f
     val s = "cheng"
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -43,7 +42,6 @@ class DrawTextCenter : View {
         centerY1 = centerY - (paint.fontMetrics.ascent + paint.fontMetrics.descent) / 2.0f
         val rect2 = Rect()
         paint.getTextBounds(s, 0, s.length, rect2)
-        centerY2 = centerY - (rect2.bottom + rect2.top) / 2.0f
     }
 
 
@@ -58,8 +56,6 @@ class DrawTextCenter : View {
         paint.style = Paint.Style.FILL
 //        canvas.drawText(s, centerX, centerY, paint)
         canvas.drawText(s, centerX, centerY1, paint)
-//        paint.color = Color.RED
-//        canvas.drawText(s, centerX, centerY2, paint)
 
         paint.color = Color.GRAY
         paint.strokeWidth = dp2px(1.0f)
