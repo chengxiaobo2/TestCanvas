@@ -31,5 +31,8 @@ class MainActivity : AppCompatActivity() {
         view19.setOnClickListener {
             startActivity(Intent(MainActivity@ this, FlipboardAnimationActivity::class.java))
         }
+        view20.setOnClickListener {
+            startActivity(Intent(MainActivity@ this, TestMatrixActivity::class.java))
+        }
     }
 }
